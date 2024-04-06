@@ -150,64 +150,6 @@ class CalculatorShell {
     return true;
   }
 
-  /// this function will perform the given math operation normally using doubles.
-  /// print the normal integer or floating point result, you should validate the input
-  /// before calling it to avoid any errors or unexpected behaviour
-  String performMathOperation(List<String> tokens) {
-    List<double> numbers = [];
-    List<String> ops = [];
-
-    for (int i = 0; i < tokens.length; i++) {
-      if (i % 2 == 0) {
-        if (tokens[i].isFraction) {
-          numbers.add(tokens[i].parseFraction());
-        } else {
-          numbers.add(double.parse(tokens[i]));
-        }
-      } else {
-        ops.add(tokens[i]);
-      }
-    }
-
-    // multiplaction and division loop
-    for (int i = 0; i < ops.length; i++) {
-      double result;
-      if (ops[i] == '*') {
-        result = numbers[i] * numbers[i + 1];
-      } else if (ops[i] == '/') {
-        result = numbers[i] / numbers[i + 1];
-      } else {
-        continue;
-      }
-      numbers.removeRange(i, i + 2);
-      numbers.insert(i, result);
-      ops.removeAt(i);
-      i = -1;
-    }
-
-    // adding and subtracting loop
-    for (int i = 0; i < ops.length; i++) {
-      double result;
-      if (ops[i] == '+') {
-        result = numbers[i] + numbers[i + 1];
-      } else if (ops[i] == '-') {
-        result = numbers[i] - numbers[i + 1];
-      } else {
-        continue;
-      }
-      numbers.removeRange(i, i + 2);
-      numbers.insert(i, result);
-      ops.removeAt(i);
-      i = -1;
-    }
-
-    if (numbers[0].toInt() != numbers[0]) {
-      return numbers[0].toString();
-    } else {
-      return numbers[0].toStringAsFixed(0);
-    }
-  }
-
   /// this function will perform the given math operation using fraction class.
   /// print the fraction and mixed fraction result to the output, you should validate the input
   /// before calling it to avoid any errors or unexpected behaviour
