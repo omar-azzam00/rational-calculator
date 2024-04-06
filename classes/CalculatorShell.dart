@@ -203,10 +203,10 @@ class CalculatorShell {
 
     if (numbers[0].isInt()) {
       return numbers[0].numerator.toString();
-    } else if (numbers[0].asDouble() > 1) {
-      return '${numbers[0].asDouble()} OR ${numbers[0]} OR ${numbers[0].toMixedFraction()}';
-    } else {
+    } else if (numbers[0].asDouble().abs() < 1) {
       return '${numbers[0].asDouble()} OR ${numbers[0]}';
+    } else {
+      return '${numbers[0].asDouble()} OR ${numbers[0]} OR ${numbers[0].toMixedFraction()}';
     }
   }
 
