@@ -235,8 +235,6 @@ class CalculatorShell {
         continue;
       }
 
-      List<mathTokenType> tokensType = [];
-
       if (tokens.length == 1 && isCommand(tokens[0])) {
         if (tokens[0] == 'exit') {
           break;
@@ -248,7 +246,7 @@ class CalculatorShell {
           stdout.write(fullHelp);
           stdout.write('\n' * (stdout.terminalLines - fullHelp.lines));
         }
-      } else if (isValidMathOperation(tokens, tokensType)) {
+      } else if (isValidMathOperation(tokens)) {
         print(performMathOperation(tokens));
       } else {
         stderr.writeln(
