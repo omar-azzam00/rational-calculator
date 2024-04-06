@@ -3,7 +3,6 @@
 library;
 
 import 'dart:io';
-import 'dart:isolate';
 import '../extentions/StrExt1.dart';
 import 'Fraction.dart';
 
