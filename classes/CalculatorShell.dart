@@ -151,9 +151,9 @@ class CalculatorShell {
   }
 
   /// this function will perform the given math operation using fraction class.
-  /// print the fraction and mixed fraction result to the output, you should validate the input
+  /// print the double, fraction and mixed fraction result to the output, you should validate the input
   /// before calling it to avoid any errors or unexpected behaviour
-  String performMathOperationFrac(List<String> tokens) {
+  String performMathOperation(List<String> tokens) {
     List<Fraction> numbers = [];
     List<String> ops = [];
 
@@ -249,7 +249,7 @@ class CalculatorShell {
           stdout.write('\n' * (stdout.terminalLines - fullHelp.lines));
         }
       } else if (isValidMathOperation(tokens, tokensType)) {
-        print(performMathOperationFrac(tokens));
+        print(performMathOperation(tokens));
       } else {
         stderr.writeln(
             'type "help" for help, and the list of supporeted commands.');
