@@ -97,12 +97,13 @@ class CalculatorShell {
           stderr.writeln('mixed fractions are not supported yet!');
           return false;
         }
-        if (!token.parseFraction().isFinite) {
+        try {
+          Fraction.fromStringFormat(token);
+        } catch (e) {
           markInvalidToken(token, readedLength);
           stderr.writeln('You can\'t divide by zero!');
           return false;
         }
-
         tokensType.add(mathTokenType.number);
         readedLength += token.length + 1;
         continue;
