@@ -38,19 +38,4 @@ extension StrExt1 on String {
 
     return true;
   }
-
-  /// this function will parse a fraction and return it is double
-  /// equalivent, you should check if it is a fraction first to avoid any
-  /// unexpected behaviour
-  double parseFraction() {
-    int? overSignIndex;
-    for (int i = 0; i < this.length; i++) {
-      if (this[i] == '/') {
-        overSignIndex = i;
-      }
-    }
-
-    return double.parse(this.substring(0, overSignIndex)) /
-        double.parse(this.substring(overSignIndex! + 1));
-  }
 }
