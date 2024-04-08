@@ -137,6 +137,7 @@ class Fraction {
     return '$wholeNumber $remainingPart';
   }
 
+  @override
   String toString() {
     return '$numerator/$denominator';
   }
